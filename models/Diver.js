@@ -13,8 +13,6 @@ class Diver {
   }
 
 
-
-
     getTotalDives({ id }) {
     return db.query(
         `SELECT COUNT(diver_id) AS number_of_dives
@@ -24,6 +22,23 @@ class Diver {
         [ id ]
     );
     }
+
+
+    create({ first_name, last_name, is_instructor, certification_id }) {
+      return db.query(
+        `INSERT INTO divers (first_name, last_name, is_instructor, certification_id)
+        VALUES ($1, $2, $3, $4)
+        RETURNING *`,
+        [ first_name, last_name, is_instructor, certification_id ]
+      );
+    }
+
+
+
+
+
+
+
 
 }
 
