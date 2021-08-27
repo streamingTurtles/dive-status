@@ -27,6 +27,9 @@ router.get('/:id/stats', async (req, res) => {
     }
   });
 
+  router.get('/ping', async (req,res) =>{
+    return res.status(200);
+  })
 
   router.post('/', async (req, res) => {
     try {
