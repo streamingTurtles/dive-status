@@ -12,3 +12,7 @@ app.use(routes);
 app.listen(PORT, () => {
   console.log(`Server started on port: ${PORT}`);
 });
+
+app.get("/ping", (req, res) => {
+  res.send({ ping: "it works now :)" });
+});
